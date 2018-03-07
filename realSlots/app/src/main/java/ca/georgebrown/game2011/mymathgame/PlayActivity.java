@@ -115,6 +115,10 @@ public class PlayActivity extends Activity {
         Button resetButton = (Button) findViewById(R.id.resetButton);
         resetListener resetlistener = new resetListener();
         resetButton.setOnClickListener(resetlistener);
+
+        Button quitButton = (Button) findViewById(R.id.quitButton);
+        quitButtonListener quitListener  = new quitButtonListener();
+        quitButton.setOnClickListener(quitListener);
     }
 
 
@@ -223,7 +227,7 @@ public class PlayActivity extends Activity {
             winnings = 0;
         playerMoney += winnings;
         resetPeopleTally();
-        err.setText(Integer.toString(playerMoney));
+        err.setText("Cash: "+Integer.toString(playerMoney));
     }
     private void resetPeopleTally() {
         kyles = 0;
@@ -233,6 +237,12 @@ public class PlayActivity extends Activity {
         denniss = 0;
         josephs = 0;
         michaels = 0;
+    }
+    private class quitButtonListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
     }
     private class resetListener implements View.OnClickListener {
         @Override
