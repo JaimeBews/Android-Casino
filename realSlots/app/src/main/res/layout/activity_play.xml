@@ -15,6 +15,22 @@
         tools:layout_editor_absoluteY="4dp" />
 
     <ImageView
+        android:id="@+id/winningsImage"
+        android:layout_width="248dp"
+        android:layout_height="221dp"
+        android:layout_marginBottom="116dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/reels_amounts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
         android:id="@+id/reel2"
         android:layout_width="wrap_content"
         android:layout_height="182dp"
@@ -91,35 +107,29 @@
 
     <TextView
         android:id="@+id/betText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_width="45dp"
+        android:layout_height="18dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:text="PlayerBet"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.851"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toBottomOf="@+id/cashText" />
 
     <TextView
         android:id="@+id/cashText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="15dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="312dp"
         android:text="Cash: "
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/SpinButton"

@@ -71,7 +71,7 @@ public class PlayActivity extends Activity {
         err.setText("Cash"+Integer.toString(playerMoney));
         betText = (TextView) findViewById(R.id.betText);
         betText.setTextColor(Color.RED);
-        betText.setText(Integer.toString(playerBet));
+        betText.setText("Bet: "+Integer.toString(playerBet));
         reel_one = (ImageView) findViewById(R.id.reel);
         reel_two = (ImageView) findViewById(R.id.reel2);
         reel_three = (ImageView) findViewById(R.id.reel3);
@@ -86,7 +86,7 @@ public class PlayActivity extends Activity {
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;
 
-        gameBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        gameBitmap = Bitmap.createBitmap(width+500, height+500, Bitmap.Config.ARGB_8888);
         gameCanvas = new Canvas(gameBitmap);
 
         paint = new Paint();
