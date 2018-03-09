@@ -1,4 +1,4 @@
-package ca.georgebrown.game2011.mymathgame;
+package ca.georgebrown.game2011.CasinoSlots;
 
 import android.content.Context;
 import android.view.GestureDetector;

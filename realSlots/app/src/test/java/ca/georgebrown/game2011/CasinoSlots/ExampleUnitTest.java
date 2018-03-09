@@ -1,4 +1,4 @@
-package ca.georgebrown.game2011.mymathgame;
+package ca.georgebrown.game2011.CasinoSlots;
 
 import org.junit.Test;
 

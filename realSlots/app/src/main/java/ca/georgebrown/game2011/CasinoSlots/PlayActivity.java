@@ -1,4 +1,4 @@
-package ca.georgebrown.game2011.mymathgame;
+package ca.georgebrown.game2011.CasinoSlots;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -27,7 +26,7 @@ public class PlayActivity extends Activity {
     private Canvas gameCanvas;
     private Bitmap gameBitmap;
     private ImageView gameFrame;
-    private TextView err;
+    private TextView cashText;
     private TextView betText;
     private int winnings;
     private int playerBet = 1;
@@ -66,9 +65,9 @@ public class PlayActivity extends Activity {
         kyleBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kyle);
         michaelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.michael);
 
-        err = (TextView) findViewById(R.id.cashText);
-        err.setTextColor(Color.RED);
-        err.setText("Cash"+Integer.toString(playerMoney));
+        cashText = (TextView) findViewById(R.id.cashText);
+        cashText.setTextColor(Color.RED);
+        cashText.setText("Cash"+Integer.toString(playerMoney));
         betText = (TextView) findViewById(R.id.betText);
         betText.setTextColor(Color.RED);
         betText.setText("Bet: "+Integer.toString(playerBet));
@@ -96,29 +95,56 @@ public class PlayActivity extends Activity {
 
         gameFrame.setImageBitmap(gameBitmap);
 
+
+        //Buttons
         Button Bet1ButtonVariable = (Button) findViewById(R.id.betBut);
-        Bet1Listener spinListenerVariable = new Bet1Listener();
-        Bet1ButtonVariable.setOnClickListener(spinListenerVariable);
+        Bet1ButtonVariable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                playerBet=1;
+                betText.setText("Bet: "+Integer.toString(playerBet));
+            }
+        });
 
         Button bet5ButtonVariable = (Button) findViewById(R.id.betBut5);
-        Bet5Listener bet5Variable = new Bet5Listener();
-        bet5ButtonVariable.setOnClickListener(bet5Variable);
+        bet5ButtonVariable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                playerBet=5;
+                betText.setText("Bet: "+Integer.toString(playerBet));
+            }
+        });
 
         Button bet15ButtonVariable = (Button) findViewById(R.id.betBut15);
-        Bet15Listener bet15Variable = new Bet15Listener();
-        bet15ButtonVariable.setOnClickListener(bet15Variable);
+        bet15ButtonVariable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                playerBet=15;
+                betText.setText("Bet: "+Integer.toString(playerBet));
+            }
+        });
 
         Button spinButton = (Button) findViewById(R.id.SpinButton);
-        spinListener spin = new spinListener();
-        spinButton.setOnClickListener(spin);
+        spinButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(playerMoney>=playerBet)
+                    Spin();
+            }
+        });
 
         Button resetButton = (Button) findViewById(R.id.resetButton);
-        resetListener resetlistener = new resetListener();
-        resetButton.setOnClickListener(resetlistener);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                playerMoney=200;
+                cashText.setText("Cash: "+Integer.toString(playerMoney));
+            }
+        });
 
         Button quitButton = (Button) findViewById(R.id.quitButton);
-        quitButtonListener quitListener  = new quitButtonListener();
-        quitButton.setOnClickListener(quitListener);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
     }
 
 
@@ -227,7 +253,7 @@ public class PlayActivity extends Activity {
             winnings = 0;
         playerMoney += winnings;
         resetPeopleTally();
-        err.setText("Cash: "+Integer.toString(playerMoney));
+        cashText.setText("Cash: "+Integer.toString(playerMoney));
     }
     private void resetPeopleTally() {
         kyles = 0;
@@ -238,53 +264,10 @@ public class PlayActivity extends Activity {
         josephs = 0;
         michaels = 0;
     }
-    private class quitButtonListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            finish();
-        }
-    }
-    private class resetListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            playerMoney=200;
-            err.setText("Cash: "+Integer.toString(playerMoney));
-        }
-    }
-    private class spinListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            if(playerMoney>=playerBet)
-                Spin();
-        }
-    }
-
-    private class Bet1Listener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            playerBet=1;
-            betText.setText("Bet: "+Integer.toString(playerBet));
-        }
-    }
-    private class Bet5Listener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            playerBet=5;
-            betText.setText("Bet: "+Integer.toString(playerBet));
-        }
-    }
-    private class Bet15Listener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            playerBet=15;
-            betText.setText("Bet: "+Integer.toString(playerBet));
-        }
-    }
-
     private void Spin() {
 
         playerMoney-= playerBet;
-        err.setText("Cash: "+Integer.toString(playerMoney));
+        cashText.setText("Cash: "+Integer.toString(playerMoney));
         Reels();
         determineWinnings();
     }
