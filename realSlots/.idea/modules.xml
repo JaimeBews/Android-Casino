@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Jaime\Documents\GitHub\Android-Casino\realSlots\app\app.iml" filepath="C:\Users\Jaime\Documents\GitHub\Android-Casino\realSlots\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/realSlots.iml" filepath="$PROJECT_DIR$/realSlots.iml" />
+      <module fileurl="file://C:\Users\Jaime\Documents\GitHub\Android-Casino\realSlots\realSlots.iml" filepath="C:\Users\Jaime\Documents\GitHub\Android-Casino\realSlots\realSlots.iml" />
     </modules>
   </component>
 </project>

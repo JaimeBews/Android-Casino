@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -38,6 +39,9 @@ public class PlayActivity extends Activity {
     private int denniss;
     private int jamess;
     private int bridgettes;
+
+    int[] personWeight = {1, 2, 4, 8, 16, 32, 32};// the odds of getting each person out of the total
+
     private ImageView reel_one;
     private ImageView reel_two;
     private ImageView reel_three;
@@ -57,6 +61,7 @@ public class PlayActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
+        //add images
         aljonBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.aljon);
         bridgetteBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bridgette);
         dennisBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dennis);
@@ -65,18 +70,22 @@ public class PlayActivity extends Activity {
         kyleBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.kyle);
         michaelBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.michael);
 
+        //add texts
         cashText = (TextView) findViewById(R.id.cashText);
         cashText.setTextColor(Color.RED);
         cashText.setText("Cash"+Integer.toString(playerMoney));
         betText = (TextView) findViewById(R.id.betText);
         betText.setTextColor(Color.RED);
         betText.setText("Bet: "+Integer.toString(playerBet));
+
+
         reel_one = (ImageView) findViewById(R.id.reel);
         reel_two = (ImageView) findViewById(R.id.reel2);
         reel_three = (ImageView) findViewById(R.id.reel3);
         reels[0] = reel_one;
         reels[1] = reel_two;
         reels[2] = reel_three;
+
         gameFrame = (ImageView) findViewById(R.id.canvasImageView);
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
@@ -148,8 +157,6 @@ public class PlayActivity extends Activity {
     }
 
 
-
-    int[] personWeight = {1, 2, 4, 8, 16, 32, 32};
 
     private int checkRoll() {
         int sumWeight = 0;
@@ -247,14 +254,17 @@ public class PlayActivity extends Activity {
              }
             else if (kyles == 3) {
                 winnings = playerBet * 500;
+                Toast.makeText(getApplicationContext(), "You won the Jackpot", Toast.LENGTH_LONG).show();
             }
         }
         else
             winnings = 0;
+
         playerMoney += winnings;
         resetPeopleTally();
         cashText.setText("Cash: "+Integer.toString(playerMoney));
     }
+
     private void resetPeopleTally() {
         kyles = 0;
         bridgettes = 0;

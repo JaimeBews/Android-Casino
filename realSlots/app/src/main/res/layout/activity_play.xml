@@ -25,7 +25,7 @@
         android:src="@drawable/reels_amounts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="182dp"
         android:layout_marginTop="88dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/kyle"
         app:layout_constraintEnd_toStartOf="@+id/reel3"
         app:layout_constraintStart_toEndOf="@+id/reel"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
         android:layout_marginTop="88dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/kyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +58,7 @@
         android:layout_height="182dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="88dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/kyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reel2"
         app:layout_constraintTop_toTopOf="parent" />
