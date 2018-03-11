@@ -1,3 +1,12 @@
+/*
+*Dennis Nguyen 101068295
+*Shariq Adtani 101031329
+*James Bews 101085383
+*
+* */
+
+
+
 package ca.georgebrown.game2011.CasinoSlots;
 
 import android.app.Activity;
